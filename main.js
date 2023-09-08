@@ -12,7 +12,7 @@ recognition.onresult = function(event){
     var Content = event.results[0][0].transcript;
     document.getElementById("textbox").innerHTML = Content;
     console.log(Content);
-    if(Content == "Take my selfie."){
+    if(Content == "Take my selfie"){
         console.log("Taking selfie --- ");
         speak();
     }
@@ -31,13 +31,14 @@ function speak(){
     }, 5000);
 }
 
+camera = document.getElementById("camera");
+
 Webcam.set({
     width:360,
     height:250,
     image_format:'png',
     png_quality:90
 });
-camera = document.getElementById("camera");
 
 function take_snapshot(){
     Webcam.snap(function(data_uri){
